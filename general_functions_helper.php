@@ -287,3 +287,25 @@ function sendHtmlEmail($replaceData,$data)
                 //redirect('admin/login');
             }
 }
+
+// function to generate success json response 
+function success_response($data)
+{
+    $response=array();
+    $response['meta']['success']=true;
+    $response['meta']['code']=200;
+    $response['data']=$data;
+    return $response;
+}
+
+// function to generate error json response 
+function error_response($error)
+{
+    $response=array();
+    $response['meta']['success']=false;
+    $response['meta']['code']=401;
+    $response['data']['errors']=$error;
+
+    return $response;   
+
+}
